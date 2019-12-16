@@ -3,6 +3,7 @@ use customer_db
 create table Category
 (
 ID int PRIMARY KEY,
-Name, Description
+Name nvarchar(100),
+[Description] nvarchar(100)
 )
 

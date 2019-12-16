@@ -2,7 +2,7 @@ use customer_db
 
 create table Customer
 (
-ID int  NOT NULL PRIMARY KEY Identity(1,1),
+ID int  NOT NULL PRIMARY KEY,
 UserID int UNIQUE FOREIGN KEY dbo.User
 [Name] nvarchar(100),
 Email nvarchar(250),
