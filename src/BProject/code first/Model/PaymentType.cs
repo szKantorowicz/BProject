@@ -19,4 +19,4 @@ namespace code_first.Model
         public virtual ICollection<Order> Orders { get; set; }
     }
 }
-}
+
