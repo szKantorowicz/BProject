@@ -21,7 +21,11 @@ namespace code_first
         public DbSet<Category> Categories { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
       
+        public FirstCodeContext()
+            :base("Shop")
+        {
 
+        }
 
     }
 }
