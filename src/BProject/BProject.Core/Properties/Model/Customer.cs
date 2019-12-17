@@ -15,14 +15,14 @@ namespace Bproject.Core.Model
         }
 
         public int ID { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public int? UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public System.DateTime? UpdatedDate { get; set; }
+        public System.DateTime? CreatedDate { get; set; }
 
         public virtual ICollection<Address> Addresses { get; set; }
         public virtual User User { get; set; }

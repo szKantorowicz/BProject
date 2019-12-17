@@ -16,8 +16,8 @@ namespace Bproject.Core.Model
 
         public int ID { get; set; }
         public string Name { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public System.DateTime? UpdatedDate { get; set; }
+        public System.DateTime? CreatedDate { get; set; }
 
         public virtual ICollection<User> Users { get; set; }
 

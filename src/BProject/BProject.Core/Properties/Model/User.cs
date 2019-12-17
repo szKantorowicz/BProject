@@ -17,8 +17,8 @@ namespace Bproject.Core.Model
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public System.DateTime? UpdatedDate { get; set; }
+        public System.DateTime? CreatedDate { get; set; }
         HashSet<Customer> Customers { get; }
         HashSet<Role> Roles { get; }
     }

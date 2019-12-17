@@ -14,9 +14,10 @@ namespace Bproject.Core.Model
         public string City { get; set; }
         public string Postcode { get; set; }
         public string Country { get; set; }
-        public Nullable<int> Level { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
+
+        public int? Level { get; set; }
+        public System.DateTime? UpdatedDate { get; set; }
+        public System.DateTime? CreatedDate { get; set; }
 
         public virtual Customer Customer { get; set; }
     }
