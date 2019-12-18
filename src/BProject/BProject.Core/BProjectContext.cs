@@ -24,8 +24,29 @@ namespace Bproject.Core.Model
         public BProjectContext()
             :base("Shop")
         {
-
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add();
+            
+            base.OnModelCreating(modelBuilder);
+        }
+        public abstract class BaseEntity
+        {
+            public int ID { get; set; }
+        }
+
+        public abstract class EntityWithTimestamp
+        {
+            public DateTime? UpdatedAt { get; set; }
+            public DateTime CreatedAt { get; set; }
+        }
+
+        public abstract class BaseEntityWithTimestamp : EntityWithTimestamp
+        {
+            public int ID { get; set; }
+        }
     }
+}
 }

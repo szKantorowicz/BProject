@@ -51,6 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityTypeConfiguration\AddressConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\CategoryConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\CustomerConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\OrderConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\OrderItemConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\PaymentTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\ProductConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\RoleConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\StatusConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\UserConfiguration.cs" />
     <Compile Include="Migrations\201912172137445_init.cs" />
     <Compile Include="Migrations\201912172137445_init.designer.cs">
       <DependentUpon>201912172137445_init.cs</DependentUpon>
