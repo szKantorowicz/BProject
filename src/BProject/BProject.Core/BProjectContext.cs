@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bproject.Core.Model
 {
-    class BProject_Core_Context : DbContext
+    class BProjectContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -21,7 +21,7 @@ namespace Bproject.Core.Model
         public DbSet<Category> Categories { get; set; }
         public DbSet<PaymentType> PaymentTypes { get; set; }
       
-        public BProject_Core_Context()
+        public BProjectContext()
             :base("Shop")
         {
 
