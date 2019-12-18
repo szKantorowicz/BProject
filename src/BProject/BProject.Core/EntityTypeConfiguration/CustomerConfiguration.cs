@@ -21,6 +21,27 @@ namespace BProject.Core.EntityTypeConfiguration
             HasMany(c => c.Addresses)
                 .WithRequired(a => a.Customer)
                 .HasForeignKey(a => a.CustomerID);
+
+            Property(c => c.FirstName)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(c => c.LastName)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(c => c.UserName)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(c => c.Email)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            Property(c => c.Phone)
+                .HasMaxLength(10)
+                .IsRequired();
         }
     }
 }
+

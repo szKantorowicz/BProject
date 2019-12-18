@@ -31,4 +31,5 @@ namespace Bproject.Core.Model
             get; set;
         }
     }
+
 }
