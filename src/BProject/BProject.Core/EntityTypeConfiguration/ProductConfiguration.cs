@@ -44,6 +44,15 @@ namespace BProject.Core.EntityTypeConfiguration
             HasMany(p => p.OrderItems)
                 .WithRequired(oi => oi.Product)
                 .HasForeignKey(oi => oi.ProductID);
+
+            HasMany(p => p.Categories)
+                .WithMany(ca => ca.Products)
+                .Map(p =>
+                {
+                    p.MapLeftKey("CategoryID");
+                    p.MapRightKey("ProductID");
+                    p.ToTable("CategoryProduct");
+                });
         }
 
     }  }       
