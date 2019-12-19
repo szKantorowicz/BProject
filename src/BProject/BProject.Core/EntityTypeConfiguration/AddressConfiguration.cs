@@ -29,6 +29,12 @@ namespace BProject.Core.EntityTypeConfiguration
                .HasMaxLength(100)
                .IsRequired();
 
+            Property(a => a.CreatedDate)
+                .IsRequired();
+
+            Property(a => a.UpdatedDate)
+                .IsOptional();
+            
         }
     }
 }

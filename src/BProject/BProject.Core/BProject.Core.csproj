@@ -66,6 +66,9 @@
       <DependentUpon>201912172137445_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Base\BaseEntity.cs" />
+    <Compile Include="Model\Base\BaseEntityWithTimestamp .cs" />
+    <Compile Include="Model\Base\EntityWithTimestamp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BProjectContext.cs" />
     <Compile Include="Model\Address.cs" />

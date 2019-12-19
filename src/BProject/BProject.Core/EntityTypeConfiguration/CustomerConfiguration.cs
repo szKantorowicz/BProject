@@ -18,10 +18,6 @@ namespace BProject.Core.EntityTypeConfiguration
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
-            HasMany(c => c.Addresses)
-                .WithRequired(a => a.Customer)
-                .HasForeignKey(a => a.CustomerID);
-
             Property(c => c.FirstName)
                 .HasMaxLength(100)
                 .IsRequired();
@@ -41,6 +37,14 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(c => c.Phone)
                 .HasMaxLength(10)
                 .IsRequired();
+
+            HasMany(c => c.Addresses)
+                .WithRequired(a => a.Customer)
+                .HasForeignKey(a => a.CustomerID);
+
+            HasMany(c => c.Orders)
+                .WithRequired(o => o.Customer)
+                .HasForeignKey(o => o.CustomerID);
         }
     }
 }

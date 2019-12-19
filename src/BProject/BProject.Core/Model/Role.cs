@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bproject.Core.Model
 {
-    class Role
+    public class Role
     {
 
         public Role()

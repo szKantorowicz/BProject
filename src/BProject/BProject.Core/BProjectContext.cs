@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BProject.Core.EntityTypeConfiguration;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -28,25 +29,11 @@ namespace Bproject.Core.Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add();
+            modelBuilder.Configurations.Add(new AddressConfiguration());
             
             base.OnModelCreating(modelBuilder);
         }
-        public abstract class BaseEntity
-        {
-            public int ID { get; set; }
-        }
-
-        public abstract class EntityWithTimestamp
-        {
-            public DateTime? UpdatedAt { get; set; }
-            public DateTime CreatedAt { get; set; }
-        }
-
-        public abstract class BaseEntityWithTimestamp : EntityWithTimestamp
-        {
-            public int ID { get; set; }
-        }
+        
     }
 }
-}
+
