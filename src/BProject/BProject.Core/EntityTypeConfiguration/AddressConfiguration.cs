@@ -1,4 +1,4 @@
-﻿using Bproject.Core.Model;
+﻿using BProject.Core.Model;
 using System.Data.Entity.ModelConfiguration;
 
 namespace BProject.Core.EntityTypeConfiguration

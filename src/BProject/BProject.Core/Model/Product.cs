@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bproject.Core.Model
+namespace BProject.Core.Model
 {
    public class Product : BaseEntityWithTimestamp
     {
@@ -19,8 +19,8 @@ namespace Bproject.Core.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal? Price { get; set; }
-        public int? Quantityinstock { get; set; }
-        public bool? Avilability { get; set; }
+        public int? QuantityInStock { get; set; }
+        public bool? Availability { get; set; }
         
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Category> Categories { get; set; }

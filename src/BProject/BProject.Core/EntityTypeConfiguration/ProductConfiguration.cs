@@ -1,4 +1,4 @@
-﻿using Bproject.Core.Model;
+﻿using BProject.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
@@ -29,10 +29,10 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(p => p.Price)
                 .IsRequired();
 
-            Property(p => p.Quantityinstock)
+            Property(p => p.QuantityInStock)
                 .IsRequired();
 
-            Property(p => p.Avilability)
+            Property(p => p.Availability)
                 .IsRequired();
 
             Property(p => p.CreatedDate)

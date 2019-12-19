@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bproject.Core.Model
+namespace BProject.Core.Model
 {
     public class User : BaseEntityWithTimestamp
     {

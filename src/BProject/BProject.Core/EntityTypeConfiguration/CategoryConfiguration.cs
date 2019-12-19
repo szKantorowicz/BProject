@@ -1,4 +1,4 @@
-﻿using Bproject.Core.Model;
+﻿using BProject.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
