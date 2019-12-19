@@ -41,6 +41,9 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(p => p.UpdatedDate)
                 .IsOptional();
 
+            HasMany(p => p.OrderItems)
+                .WithRequired(oi => oi.Product)
+                .HasForeignKey(oi => oi.ProductID);
         }
 
     }  }       

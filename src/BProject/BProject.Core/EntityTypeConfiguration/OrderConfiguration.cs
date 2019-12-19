@@ -30,7 +30,7 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(o => o.PaymentTypeID)
                  .IsRequired();
 
-            Property(o => o.Status)
+            Property(o => o.StatusID)
                  .IsRequired();
 
             Property(o => o.CreatedDate)
