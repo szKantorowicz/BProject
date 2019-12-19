@@ -38,8 +38,8 @@ create table dbo.[Address]
 ID int PRIMARY KEY,
 CustomerID int FOREIGN KEY dbo.Customer,
 Street nvarchar(40),
-City nvarchar(40), PostCodenvarchar(10),
-Country nvarchar(40),
+City nvarchar(40), 
+PostCode nvarchar(40),
 Level int,
 UpdatedDate datetime,
 CreatedDate datetime
@@ -76,7 +76,8 @@ ID int  NOT NULL PRIMARY KEY
 CustomerID int FOREIGN KEY dbo.Customer,
 TotalAmount int,
 PaymentType int,
-IsPayed bit, PaymentTypeID int FOREIGN KEY dbo.PaymentType
+IsPayed bit, 
+PaymentTypeID int FOREIGN KEY dbo.PaymentType
 [Status] int,
 StatusID int FOREIGN KEY dbo.Status,
 UpdatedDate datetime,
