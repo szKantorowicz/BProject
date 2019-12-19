@@ -19,7 +19,7 @@ alter table dbo.[ProductCategory] add constraint Fk_ProductCategory_Category for
 
 alter table dbo.[Order] add constraint Fk_Order_Status foreign key ([StatusID]) references dbo.[Status] (ID) on delete cascade on update cascade
 
-alter table dbo.[Order] add constraint Fk_Order_PaymentType foreign key ([PaymentTypeID]) references dbo.[PaymentTypeID] (ID) on delete cascade on update cascade
+alter table dbo.[Order] add constraint Fk_Order_PaymentType foreign key ([PaymentTypeID]) references dbo.[PaymentType] (ID) on delete cascade on update cascade
 
 alter table dbo.OrderItem add constraint FK_OrderItem_Order foreign key (OrderID) references dbo.[Order] (ID) on delete cascade on update cascade
 

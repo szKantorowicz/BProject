@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F1BC7006-24D9-40A3-B0EF-8D503A0BA311}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BProject.Core</RootNamespace>
+    <AssemblyName>BProject.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityTypeConfiguration\AddressConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\CategoryConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\CustomerConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\OrderConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\OrderItemConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\PaymentTypeConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\ProductConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\RoleConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\StatusConfiguration.cs" />
+    <Compile Include="EntityTypeConfiguration\UserConfiguration.cs" />
+    <Compile Include="Migrations\201912172137445_init.cs" />
+    <Compile Include="Migrations\201912172137445_init.designer.cs">
+      <DependentUpon>201912172137445_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.cs" />
+    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.designer.cs">
+      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\Base\BaseEntity.cs" />
+    <Compile Include="Model\Base\BaseEntityWithTimestamp .cs" />
+    <Compile Include="Model\Base\EntityWithTimestamp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BProjectContext.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\PaymentType.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Status.cs" />
+    <Compile Include="Model\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912172137445_init.resx">
+      <DependentUpon>201912172137445_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912192227544_UpdateClassConfiguration.resx">
+      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ten projekt zawiera odwołania do pakietów NuGet, których nie ma na tym komputerze. Użyj przywracania pakietów NuGet, aby je pobrać. Aby uzyskać więcej informacji, zobacz http://go.microsoft.com/fwlink/?LinkID=322105. Brakujący plik: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

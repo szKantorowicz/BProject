@@ -1,7 +1,11 @@
 use customer_db
 
-create table [UserRole]
+create table [User]
 (
-RoleID int NOT NULL PRIMARY KEY Identity(1,1),
-UserID int,
+ID int PRIMARY KEY,
+Name nvarchar(100),
+Email nvarchar(100),
+Password nvarchar(max),
+UpdatedDate datetime,
+CreatedDate datetime)
 )
