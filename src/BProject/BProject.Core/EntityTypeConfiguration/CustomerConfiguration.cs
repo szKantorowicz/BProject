@@ -38,6 +38,10 @@ namespace BProject.Core.EntityTypeConfiguration
                 .HasMaxLength(10)
                 .IsOptional();
 
+            HasRequired(c => c.User)
+                .WithMany()
+                .HasForeignKey(c => c.UserID);
+
             HasMany(c => c.Addresses)
                 .WithRequired(a => a.Customer)
                 .HasForeignKey(a => a.CustomerID);

@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201912172137445_init.designer.cs">
       <DependentUpon>201912172137445_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.cs" />
+    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.designer.cs">
+      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Base\BaseEntity.cs" />
     <Compile Include="Model\Base\BaseEntityWithTimestamp .cs" />
@@ -89,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201912172137445_init.resx">
       <DependentUpon>201912172137445_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912192227544_UpdateClassConfiguration.resx">
+      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

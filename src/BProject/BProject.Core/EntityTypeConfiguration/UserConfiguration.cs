@@ -17,7 +17,7 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(u => u.Name)
                 .HasMaxLength(100)
                 .IsRequired();
-            
+
             Property(u => u.Email)
                 .HasMaxLength(100)
                 .IsRequired();
@@ -33,7 +33,8 @@ namespace BProject.Core.EntityTypeConfiguration
                 .IsOptional();
 
             HasRequired(u => u.Customer)
-            .WithRequiredPrincipal(c => c.User);
+                .WithMany()
+                .HasForeignKey(u => u.CustomerID);
 
             HasMany(u => u.Roles)
                 .WithMany(r => r.Users)
