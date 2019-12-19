@@ -22,16 +22,16 @@ namespace BProject.Core.EntityTypeConfiguration
                 .IsRequired();
 
             Property(o => o.TotalAmount)
-                .IsRequired();
+                .IsOptional();
 
             Property(o => o.IsPayed)
-                 .IsRequired();
+                 .IsOptional();
 
             Property(o => o.PaymentTypeID)
-                 .IsRequired();
+                 .IsOptional();
 
             Property(o => o.StatusID)
-                 .IsRequired();
+                 .IsOptional();
 
             Property(o => o.CreatedDate)
                  .IsRequired();

@@ -20,11 +20,11 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(c => c.FirstName)
                 .HasMaxLength(100)
-                .IsRequired();
+                .IsOptional();
 
             Property(c => c.LastName)
                 .HasMaxLength(100)
-                .IsRequired();
+                .IsOptional();
 
             Property(c => c.UserName)
                 .HasMaxLength(100)
@@ -36,7 +36,7 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(c => c.Phone)
                 .HasMaxLength(10)
-                .IsRequired();
+                .IsOptional();
 
             HasMany(c => c.Addresses)
                 .WithRequired(a => a.Customer)

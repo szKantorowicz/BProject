@@ -23,7 +23,7 @@ namespace BProject.Core.EntityTypeConfiguration
                 .IsRequired();
 
             HasMany(s => s.Orders)
-               .WithRequired(o => o.Status)
+               .WithOptional(o => o.Status)
                .HasForeignKey(o => o.StatusID);
 
 

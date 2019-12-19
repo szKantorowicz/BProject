@@ -23,7 +23,7 @@ namespace BProject.Core.EntityTypeConfiguration
                 .IsRequired();
 
             HasMany(pt => pt.Orders)
-               .WithRequired(o => o.PaymentType)
+               .WithOptional(o => o.PaymentType)
                .HasForeignKey(o => o.PaymentTypeID);
         }
     }

@@ -49,9 +49,9 @@ namespace BProject.Core.EntityTypeConfiguration
                 .WithMany(ca => ca.Products)
                 .Map(p =>
                 {
-                    p.MapLeftKey("CategoryID");
-                    p.MapRightKey("ProductID");
-                    p.ToTable("CategoryProduct");
+                    p.MapLeftKey("ProductID");
+                    p.MapRightKey("CategoryID");
+                    p.ToTable("ProductCategory");
                 });
         }
 

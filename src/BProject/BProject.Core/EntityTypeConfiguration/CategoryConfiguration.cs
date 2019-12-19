@@ -24,7 +24,7 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(ca => ca.Description)
                 .HasMaxLength(1000)
-                .IsRequired();
+                .IsOptional();
         }
     }
 }
