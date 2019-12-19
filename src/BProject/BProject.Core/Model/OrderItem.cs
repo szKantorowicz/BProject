@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bproject.Core.Model
 {
-    class OrderItem
+     public class OrderItem
     {
         public int ID { get; set; }
         public int? OrderID { get; set; }

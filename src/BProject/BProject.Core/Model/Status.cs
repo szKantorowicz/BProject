@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bproject.Core.Model
 {
-    class Status
+   public class Status
     {
         public Status()
         {

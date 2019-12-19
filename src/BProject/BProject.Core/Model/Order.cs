@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bproject.Core.Model
 {
-    class Order
+    public class Order
     {
     
         
@@ -27,7 +27,7 @@ namespace Bproject.Core.Model
         public virtual Customer Customer { get; set; }
         public virtual PaymentType PaymentType { get; set; }
         public virtual Status Status1 { get; set; }
-   
+  
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }
