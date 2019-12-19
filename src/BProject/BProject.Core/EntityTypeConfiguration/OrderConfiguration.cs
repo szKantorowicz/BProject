@@ -18,19 +18,10 @@ namespace BProject.Core.EntityTypeConfiguration
                 .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)
                 .IsRequired();
 
-            Property(o => o.CustomerID)
-                .IsRequired();
-
             Property(o => o.TotalAmount)
                 .IsOptional();
 
             Property(o => o.IsPayed)
-                 .IsOptional();
-
-            Property(o => o.PaymentTypeID)
-                 .IsOptional();
-
-            Property(o => o.StatusID)
                  .IsOptional();
 
             Property(o => o.CreatedDate)

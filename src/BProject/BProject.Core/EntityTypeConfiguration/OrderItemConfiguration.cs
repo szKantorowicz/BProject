@@ -32,12 +32,6 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(oi => oi.UnitPrice)
                 .IsRequired();
-
-            Property(oi => oi.ProductID)
-                .IsRequired();
-
-            Property(oi => oi.OrderID)
-                .IsRequired();
         }
     }
 }

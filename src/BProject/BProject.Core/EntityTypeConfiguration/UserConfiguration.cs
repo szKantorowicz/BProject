@@ -32,7 +32,6 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(u => u.UpdatedDate)
                 .IsOptional();
 
-
             HasRequired(u => u.Customer)
             .WithRequiredPrincipal(c => c.User);
 
