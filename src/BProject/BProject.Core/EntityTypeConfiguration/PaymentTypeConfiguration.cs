@@ -22,6 +22,9 @@ namespace BProject.Core.EntityTypeConfiguration
                 .HasMaxLength(100)
                 .IsRequired();
 
+            HasMany(pt => pt.Orders)
+               .WithRequired(o => o.PaymentType)
+               .HasForeignKey(o => o.PaymentTypeID);
         }
     }
 }

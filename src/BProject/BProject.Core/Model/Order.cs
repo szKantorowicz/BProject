@@ -20,13 +20,13 @@ namespace Bproject.Core.Model
         public decimal? TotalAmount { get; set; }
         public bool? IsPayed { get; set; }
         public int? PaymentTypeID { get; set; }
-        public int? Status { get; set; }
+        public int? StatusID { get; set; }
         public System.DateTime? UpdatedDate { get; set; }
         public System.DateTime? CreatedDate { get; set; }
 
         public virtual Customer Customer { get; set; }
         public virtual PaymentType PaymentType { get; set; }
-        public virtual Status Status1 { get; set; }
+        public virtual Status Status { get; set; }
   
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
