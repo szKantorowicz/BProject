@@ -24,10 +24,9 @@ namespace BProject.Core.EntityTypeConfiguration
             Property(a => a.Postcode)
                 .HasMaxLength(6)
                 .IsRequired();
-                                  
-            Property(a => a.City)
-               .HasMaxLength(100)
-               .IsRequired();
+
+            Property(a => a.Level)
+                .IsOptional();
 
             Property(a => a.CreatedDate)
                 .IsRequired();

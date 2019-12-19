@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.EntityTypeConfiguration
 {
-    class ProductConfiguration
+   public  class ProductConfiguration
     {
     }
 }
