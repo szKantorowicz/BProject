@@ -1,4 +1,5 @@
 ﻿using BProject.Core.EntityTypeConfiguration;
+using BProject.Core.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace BProject.Core.Model
+namespace BProject.Core
 {
     class BProjectContext : DbContext
     {
@@ -23,7 +24,7 @@ namespace BProject.Core.Model
         public DbSet<PaymentType> PaymentTypes { get; set; }
       
         public BProjectContext()
-            :base("Shop")
+            : base("Shop")
         {
         }
 
