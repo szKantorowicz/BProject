@@ -25,8 +25,6 @@ namespace BProject.Core.EntityTypeConfiguration
             HasMany(s => s.Orders)
                .WithOptional(o => o.Status)
                .HasForeignKey(o => o.StatusID);
-
-
         }
     }
 }

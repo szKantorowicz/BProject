@@ -9,15 +9,12 @@ namespace Bproject.Core.Model
 {
     public class Role : BaseEntityWithTimestamp
     {
-
         public Role()
         {
             this.Users = new HashSet<User>();
         }
 
-        
         public string Name { get; set; }
-
 
         public virtual ICollection<User> Users { get; set; }
 

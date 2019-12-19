@@ -42,7 +42,6 @@ namespace BProject.Core.EntityTypeConfiguration
             HasMany(o => o.OrderItems)
                 .WithRequired(oi => oi.Order)
                 .HasForeignKey(oi => oi.OrderID);
-
         }
     }
 }

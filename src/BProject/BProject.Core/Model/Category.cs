@@ -14,7 +14,6 @@ namespace Bproject.Core.Model
             this.Products = new HashSet<Product>();
         }
 
-        
         public string Name { get; set; }
         public string Description { get; set; }
 

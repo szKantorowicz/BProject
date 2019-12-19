@@ -19,7 +19,6 @@ namespace Bproject.Core.Model
         public string Password { get; set; }
         public virtual Customer Customer { get; set; }
         
-        
         public HashSet<Role> Roles { get; }
     }
 }

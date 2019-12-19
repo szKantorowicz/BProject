@@ -38,12 +38,6 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(oi => oi.OrderID)
                 .IsRequired();
-
-            
-
-
-
-
         }
     }
 }

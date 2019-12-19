@@ -30,23 +30,14 @@ namespace Bproject.Core.Model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new AddressConfiguration());
-
             modelBuilder.Configurations.Add(new CategoryConfiguration());
-
             modelBuilder.Configurations.Add(new CustomerConfiguration());
-
             modelBuilder.Configurations.Add(new OrderConfiguration());
-
             modelBuilder.Configurations.Add(new OrderItemConfiguration());
-
             modelBuilder.Configurations.Add(new PaymentTypeConfiguration());
-
             modelBuilder.Configurations.Add(new ProductConfiguration());
-
             modelBuilder.Configurations.Add(new RoleConfiguration());
-
             modelBuilder.Configurations.Add(new StatusConfiguration());
-
             modelBuilder.Configurations.Add(new UserConfiguration());
 
             base.OnModelCreating(modelBuilder);

@@ -33,7 +33,6 @@ namespace BProject.Core.EntityTypeConfiguration
 
             Property(a => a.UpdatedDate)
                 .IsOptional();
-            
         }
     }
 }

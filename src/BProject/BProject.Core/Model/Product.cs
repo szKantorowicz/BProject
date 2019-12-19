@@ -15,7 +15,6 @@ namespace Bproject.Core.Model
             this.Categories = new HashSet<Category>();
         }
 
-       
         public int Category { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -23,7 +22,6 @@ namespace Bproject.Core.Model
         public int? Quantityinstock { get; set; }
         public bool? Avilability { get; set; }
         
-
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
     }

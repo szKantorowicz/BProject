@@ -15,7 +15,6 @@ namespace Bproject.Core.Model
             this.Orders = new HashSet<Order>();
         }
 
-        
         public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

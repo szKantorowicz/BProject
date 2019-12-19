@@ -55,4 +55,4 @@ namespace BProject.Core.EntityTypeConfiguration
                 });
         }
 
-    }  }       
+}    }        

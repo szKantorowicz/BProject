@@ -22,13 +22,6 @@ namespace BProject.Core.EntityTypeConfiguration
                 Property(c => c.Name)
                     .HasMaxLength(100)
                     .IsRequired();
-
-              
-                 
-
-
-        
-
     }
    }
     
