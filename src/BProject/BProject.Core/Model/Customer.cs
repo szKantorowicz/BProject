@@ -21,11 +21,12 @@ namespace BProject.Core.Model
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        
-        public virtual ICollection<Address> Addresses { get; set; }
+
         public virtual User User { get; set; }
+
+        public virtual ICollection<Address> Addresses { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
-        
+
     }
 
 }

@@ -9,8 +9,6 @@ namespace BProject.Core.Model
 {
     public class Order : BaseEntityWithTimestamp
     {
-    
-        
         public Order()
         {
             this.OrderItems = new HashSet<OrderItem>();

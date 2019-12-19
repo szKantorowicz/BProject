@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.Model
 {
-   public class Product : BaseEntityWithTimestamp
+    public class Product : BaseEntityWithTimestamp
     {
         public Product()
         {
@@ -21,7 +21,7 @@ namespace BProject.Core.Model
         public decimal? Price { get; set; }
         public int? QuantityInStock { get; set; }
         public bool? Availability { get; set; }
-        
+
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
     }
