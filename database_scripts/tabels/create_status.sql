@@ -1,7 +1,8 @@
 use customer_db
 
-create table dbo.[Status]
+CREATE TABLE [dbo].[Status] 
 (
-ID int  NOT NULL PRIMARY KEY,
-[Name] nvarchar(100)
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    CONSTRAINT [PK_dbo.Status] PRIMARY KEY ([ID])
 )
