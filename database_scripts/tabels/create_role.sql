@@ -1,7 +1,10 @@
 use customer_db
 
-create table dbo.[Role]
+CREATE TABLE [dbo].[Roles] 
 (
-ID int NOT NULL PRIMARY KEY 
-[Name] nvarchar(100),
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Roles] PRIMARY KEY ([ID])
 )
