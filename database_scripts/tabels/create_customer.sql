@@ -1,12 +1,14 @@
 use customer_db
 
-create table Customer
-(
-ID int  NOT NULL PRIMARY KEY,
-UserID int UNIQUE FOREIGN KEY dbo.User
-[Name] nvarchar(100),
-Email nvarchar(250),
-[Street] nvarchar (250),
-PostCode int,
-Country nvarchar(250),
+CREATE TABLE [dbo].[Customers] (
+    [ID] [int] NOT NULL IDENTITY,
+    [UserID] [int],
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [UserName] [nvarchar](max),
+    [Email] [nvarchar](max),
+    [Phone] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Customers] PRIMARY KEY ([ID])
 )
