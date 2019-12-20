@@ -1,11 +1,14 @@
 use customer_db
 
-create table [User]
+CREATE TABLE [dbo].[Users] 
 (
-ID int PRIMARY KEY,
-Name nvarchar(100),
-Email nvarchar(100),
-Password nvarchar(max),
-UpdatedDate datetime,
-CreatedDate datetime)
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Email] [nvarchar](max),
+    [Password] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    [Role_ID] [int],
+    CONSTRAINT [PK_dbo.Users] PRIMARY KEY ([ID])
 )
+CREATE INDEX [IX_Role_ID] ON [dbo].[Users]([Role_ID])
