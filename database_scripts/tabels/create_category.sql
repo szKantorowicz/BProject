@@ -1,9 +1,8 @@
 use customer_db
 
-create table Category
-(
-ID int PRIMARY KEY,
-Name nvarchar(100),
-[Description] nvarchar(100)
+CREATE TABLE [dbo].[Categories] (
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Description] [nvarchar](max),
+    CONSTRAINT [PK_dbo.Categories] PRIMARY KEY ([ID])
 )
-
