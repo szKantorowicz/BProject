@@ -1,7 +1,7 @@
 use customer_db
 
-create table dbo.PaymentType
-(
-ID int  NOT NULL PRIMARY KEY,
-[Name] nvarchar(100)
+CREATE TABLE [dbo].[PaymentTypes] (
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    CONSTRAINT [PK_dbo.PaymentTypes] PRIMARY KEY ([ID])
 )
