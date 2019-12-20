@@ -1,13 +1,16 @@
 use customer_db
 
-create table dbo.Address 
+CREATE TABLE [dbo].[Addresses] 
 (
-ID int PRIMARY KEY,
-CustomerID int FOREIGN KEY dbo.Customer,
-Street nvarchar(40),
-City nvarchar(40), PostCodenvarchar(10),
-Country nvarchar(40),
-Level int,
-UpdatedDate datetime,
-CreatedDate datetime
+    [ID] [int] NOT NULL IDENTITY,
+    [CustomerID] [int],
+    [Street] [nvarchar](max),
+    [City] [nvarchar](max),
+    [Postcode] [nvarchar](max),
+    [Country] [nvarchar](max),
+    [Level] [int],
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Addresses] PRIMARY KEY ([ID])
+
 )
