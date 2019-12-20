@@ -1,135 +1,143 @@
-create database dbo.customer
-
-create table [User]
+CREATE TABLE [dbo].[Addresses] 
 (
-ID int PRIMARY KEY,
-Name nvarchar(100),
-Email nvarchar(100),
-Password nvarchar(max),
-UpdatedDate datetime,
-CreatedDate datetime)
+    [ID] [int] NOT NULL IDENTITY,
+    [CustomerID] [int],
+    [Street] [nvarchar](max),
+    [City] [nvarchar](max),
+    [Postcode] [nvarchar](max),
+    [Country] [nvarchar](max),
+    [Level] [int],
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Addresses] PRIMARY KEY ([ID])
 )
 
-create table [UserRole]
+CREATE INDEX [IX_CustomerID] ON [dbo].[Addresses]([CustomerID])
+
+CREATE TABLE [dbo].[Customers]
 (
-UserID int PRIMARY KEY FOREIGN KEY dbo.[User]
-RoleID int PRIMARY KEY FOREIGN KEY dbo.[Role]
+    [ID] [int] NOT NULL IDENTITY,
+    [UserID] [int],
+    [FirstName] [nvarchar](max),
+    [LastName] [nvarchar](max),
+    [UserName] [nvarchar](max),
+    [Email] [nvarchar](max),
+    [Phone] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Customers] PRIMARY KEY ([ID])
 )
 
-create table dbo.[Role]
+CREATE INDEX [IX_UserID] ON [dbo].[Customers]([UserID])
+
+CREATE TABLE [dbo].[Orders] 
 (
-ID int NOT NULL PRIMARY KEY 
-Name nvarchar(100),
+    [ID] [int] NOT NULL IDENTITY,
+    [CustomerID] [int],
+    [TotalAmount] [decimal](18, 2),
+    [IsPayed] [bit],
+    [PaymentTypeID] [int],
+    [Status] [int],
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    [Status1_ID] [int],
+    CONSTRAINT [PK_dbo.Orders] PRIMARY KEY ([ID])
 )
 
-create table Customer
+CREATE INDEX [IX_CustomerID] ON [dbo].[Orders]([CustomerID])
+CREATE INDEX [IX_PaymentTypeID] ON [dbo].[Orders]([PaymentTypeID])
+CREATE INDEX [IX_Status1_ID] ON [dbo].[Orders]([Status1_ID])
+
+CREATE TABLE [dbo].[OrderItems] 
 (
-ID int  NOT NULL PRIMARY KEY Identity
-UserID int UNIQUE FOREIGN KEY dbo.User
-[Name] nvarchar(100),
-Email nvarchar(250),
-[Street] nvarchar (250),
-PostCode int,
-Country nvarchar(250),
+    [ID] [int] NOT NULL IDENTITY,
+    [OrderID] [int],
+    [ProductID] [int],
+    [UnitPrice] [decimal](18, 2),
+    [TotalPrice] [decimal](18, 2),
+    [Quantity] [int],
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.OrderItems] PRIMARY KEY ([ID])
 )
 
-create table dbo.[Address] 
-(
-ID int PRIMARY KEY,
-CustomerID int FOREIGN KEY dbo.Customer,
-Street nvarchar(40),
-City nvarchar(40), 
-PostCode nvarchar(40),
-Level int,
-UpdatedDate datetime,
-CreatedDate datetime
+CREATE INDEX [IX_OrderID] ON [dbo].[OrderItems]([OrderID])
+CREATE INDEX [IX_ProductID] ON [dbo].[OrderItems]([ProductID])
 
-create table dbo.Product
-(
-ID int PRIMARY KEY FOREIGN KEY dbo.Product,
-CategoryId int FOREIGN KEY dbo.Category,
-Name nvarchar(50),
-Description nvarchar(max),
-Price decimal(10,2),
-QuantityInStock int,
-Availablity bit,
-UpdatedDate datetime,
-CreatedDate datetime
+CREATE TABLE [dbo].[Products] (
+    [ID] [int] NOT NULL IDENTITY,
+    [Category] [int],
+    [Name] [nvarchar](max),
+    [Description] [nvarchar](max),
+    [Price] [decimal](18, 2),
+    [Quantityinstock] [int],
+    [Avilability] [bit],
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Products] PRIMARY KEY ([ID])
 )
 
-create table ProductCategory
+CREATE TABLE [dbo].[Categories] 
 (
-ProductID int PRIMARY KEY FOREIGN KEY dbo.Product
-CategoryID int PRIMARY KEY FOREIGN KEY dbo.Category
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Description] [nvarchar](max),
+    CONSTRAINT [PK_dbo.Categories] PRIMARY KEY ([ID])
 )
 
-create table Category
+CREATE TABLE [dbo].[PaymentTypes] 
 (
-ID int PRIMARY KEY,
-Name nvarchar(100),
-[Description] nvarchar(100)
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    CONSTRAINT [PK_dbo.PaymentTypes] PRIMARY KEY ([ID])
 )
 
-create table dbo.[Order]
+CREATE TABLE [dbo].[Status] 
 (
-ID int  NOT NULL PRIMARY KEY 
-CustomerID int FOREIGN KEY dbo.Customer,
-TotalAmount int,
-PaymentType int,
-IsPayed bit, 
-PaymentTypeID int FOREIGN KEY dbo.PaymentType
-[Status] int,
-StatusID int FOREIGN KEY dbo.Status,
-UpdatedDate datetime,
-CreatedDate datetime
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    CONSTRAINT [PK_dbo.Status] PRIMARY KEY ([ID])
+)
+CREATE TABLE [dbo].[Users] 
+(
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [Email] [nvarchar](max),
+    [Password] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    [Role_ID] [int],
+    CONSTRAINT [PK_dbo.Users] PRIMARY KEY ([ID])
 )
 
-create table dbo.OrderItem
+CREATE INDEX [IX_Role_ID] ON [dbo].[Users]([Role_ID])
+
+CREATE TABLE [dbo].[Roles] 
 (
-ID int  NOT NULL PRIMARY KEY,
-OrderID int FOREIGN KEY dbo.Order,
-ProductID int FOREIGN KEY dbo.Product,
-UnitPrice decimal(10,2),
-Price int,
-TotalPrice decimal(10,2),
-Quantity int,
-UpdatedDate datetime,
-CreatedDate datetime
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](max),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime],
+    CONSTRAINT [PK_dbo.Roles] PRIMARY KEY ([ID])
 )
 
-create table dbo.[Status]
+CREATE TABLE [dbo].[CategoryProducts] 
 (
-ID int  NOT NULL PRIMARY KEY,
-[Name] nvarchar(100)
+    [Category_ID] [int] NOT NULL,
+    [Product_ID] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.CategoryProducts] PRIMARY KEY ([Category_ID], [Product_ID])
 )
 
-create table dbo.PaymentType
-(
-ID int  NOT NULL PRIMARY KEY,
-[Name] nvarchar(100)
-)
+CREATE INDEX [IX_Category_ID] ON [dbo].[CategoryProducts]([Category_ID])
+CREATE INDEX [IX_Product_ID] ON [dbo].[CategoryProducts]([Product_ID])FK_OrderItem_Product foreign key (ProductID) references dbo.[Product] (ID) on delete cascade on update cascade
 
-alter table dbo.[UserRole] alter column UserID int NOT NULL 
-alter table dbo.[UserRole] alter column RoleID int NOT NULL
-alter table dbo.[UserRole] add constraint PK_User_Role primary key (UserID,RoleID) 
-alter table dbo.[UserRole] add constraint Fk_User foreign key (UserID) references dbo.[User] (ID) on delete cascade on update cascade
-alter table dbo.[UserRole] add constraint Fk_Role foreign key (RoleID) references dbo.[Role] (ID) on delete cascade on update cascade
-
-alter table dbo.Customer add constraint UQ_Customer_UserID UNIQUE (UserID)
-alter table dbo.[Customer] add constraint Fk_Customer_User foreign key (UserID) references dbo.[User] (ID) on delete cascade on update cascade
-
-alter table dbo.[Address] add constraint Fk_Address_Customer foreign key (CustomerID) references dbo.[Customer] (ID) on delete cascade on update cascade
-
-alter table dbo.[Order] add constraint Fk_Order_Customer foreign key (CustomerID) references dbo.[Customer] (ID) on delete cascade on update cascade
-
-alter table dbo.[ProductCategory] add constraint Fk_ProductCategory_Product foreign key ([ProductID]) references dbo.[Product] (ID) on delete cascade on update cascade
-
-alter table dbo.[ProductCategory] add constraint Fk_ProductCategory_Category foreign key ([CategoryID]) references dbo.[Category] (ID) on delete cascade on update cascade
-
-alter table dbo.[Order] add constraint Fk_Order_Status foreign key ([StatusID]) references dbo.[Status] (ID) on delete cascade on update cascade
-
-alter table dbo.[Order] add constraint Fk_Order_PaymentType foreign key ([PaymentTypeID]) references dbo.[PaymentType] (ID) on delete cascade on update cascade
-
-alter table dbo.OrderItem add constraint FK_OrderItem_Order foreign key (OrderID) references dbo.[Order] (ID) on delete cascade on update cascade
-
-alter table dbo.OrderItem add constraint FK_OrderItem_Product foreign key (ProductID) references dbo.[Product] (ID) on delete cascade on update cascade
+ALTER TABLE [dbo].[Addresses] ADD CONSTRAINT [FK_dbo.Addresses_dbo.Customers_CustomerID] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[Customers] ([ID])
+ALTER TABLE [dbo].[Customers] ADD CONSTRAINT [FK_dbo.Customers_dbo.Users_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([ID])
+ALTER TABLE [dbo].[Orders] ADD CONSTRAINT [FK_dbo.Orders_dbo.Customers_CustomerID] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[Customers] ([ID])
+ALTER TABLE [dbo].[Orders] ADD CONSTRAINT [FK_dbo.Orders_dbo.PaymentTypes_PaymentTypeID] FOREIGN KEY ([PaymentTypeID]) REFERENCES [dbo].[PaymentTypes] ([ID])
+ALTER TABLE [dbo].[Orders] ADD CONSTRAINT [FK_dbo.Orders_dbo.Status_Status1_ID] FOREIGN KEY ([Status1_ID]) REFERENCES [dbo].[Status] ([ID])
+ALTER TABLE [dbo].[OrderItems] ADD CONSTRAINT [FK_dbo.OrderItems_dbo.Orders_OrderID] FOREIGN KEY ([OrderID]) REFERENCES [dbo].[Orders] ([ID])
+ALTER TABLE [dbo].[OrderItems] ADD CONSTRAINT [FK_dbo.OrderItems_dbo.Products_ProductID] FOREIGN KEY ([ProductID]) REFERENCES [dbo].[Products] ([ID])
+ALTER TABLE [dbo].[Users] ADD CONSTRAINT [FK_dbo.Users_dbo.Roles_Role_ID] FOREIGN KEY ([Role_ID]) REFERENCES [dbo].[Roles] ([ID])
+ALTER TABLE [dbo].[CategoryProducts] ADD CONSTRAINT [FK_dbo.CategoryProducts_dbo.Categories_Category_ID] FOREIGN KEY ([Category_ID]) REFERENCES [dbo].[Categories] ([ID]) ON DELETE CASCADE
+ALTER TABLE [dbo].[CategoryProducts] ADD CONSTRAINT [FK_dbo.CategoryProducts_dbo.Products_Product_ID] FOREIGN KEY ([Product_ID]) REFERENCES [dbo].[Products] ([ID]) ON DELETE CASCADE
