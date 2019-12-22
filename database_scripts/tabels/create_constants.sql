@@ -1,4 +1,13 @@
-use customer_db
+use BProject_db
+
+CREATE INDEX [IX_Category_ID] ON [dbo].[CategoryProducts]([Category_ID])
+CREATE INDEX [IX_Product_ID] ON [dbo].[CategoryProducts]([Product_ID])
+CREATE INDEX [IX_CustomerID] ON [dbo].[Orders]([CustomerID])
+CREATE INDEX [IX_PaymentTypeID] ON [dbo].[Orders]([PaymentTypeID])
+CREATE INDEX [IX_Status1_ID] ON [dbo].[Orders]([Status1_ID])
+CREATE INDEX [IX_OrderID] ON [dbo].[OrderItems]([OrderID])
+CREATE INDEX [IX_ProductID] ON [dbo].[OrderItems]([ProductID])
+CREATE INDEX [IX_Role_ID] ON [dbo].[Users]([Role_ID])
 
 ALTER TABLE [dbo].[Addresses] ADD CONSTRAINT [FK_dbo.Addresses_dbo.Customers_CustomerID] FOREIGN KEY ([CustomerID]) REFERENCES [dbo].[Customers] ([ID])
 ALTER TABLE [dbo].[Customers] ADD CONSTRAINT [FK_dbo.Customers_dbo.Users_UserID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Users] ([ID])
