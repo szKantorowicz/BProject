@@ -1,4 +1,4 @@
-use customer_db
+use BProject_db
 
 
 CREATE TABLE [dbo].[Orders] (
@@ -9,10 +9,8 @@ CREATE TABLE [dbo].[Orders] (
     [PaymentTypeID] [int],
     [Status] [int],
     [UpdatedDate] [datetime],
-    [CreatedDate] [datetime],
+    [CreatedDate] [datetime] NOT NULL,
     [Status1_ID] [int],
     CONSTRAINT [PK_dbo.Orders] PRIMARY KEY ([ID])
 )
-CREATE INDEX [IX_CustomerID] ON [dbo].[Orders]([CustomerID])
-CREATE INDEX [IX_PaymentTypeID] ON [dbo].[Orders]([PaymentTypeID])
-CREATE INDEX [IX_Status1_ID] ON [dbo].[Orders]([Status1_ID])
+
