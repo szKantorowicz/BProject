@@ -1,14 +1,14 @@
-use customer_db
+use BProject_db
 
 CREATE TABLE [dbo].[Products] (
     [ID] [int] NOT NULL IDENTITY,
-    [Category] [int],
-    [Name] [nvarchar](max),
-    [Description] [nvarchar](max),
-    [Price] [decimal](18, 2),
-    [Quantityinstock] [int],
-    [Avilability] [bit],
+    [Category] [int] NOT NULL,
+    [Name] [nvarchar](100) NOT NULL,
+    [Description] [nvarchar](1000) NOT NULL,
+    [Price] [decimal](18, 2) NOT NULL,
+    [Quantityinstock] [int] NOT NULL,
+    [Avilability] [bit] NOT NULL,
     [UpdatedDate] [datetime],
-    [CreatedDate] [datetime],
+    [CreatedDate] [datetime] NOT NULL,
     CONSTRAINT [PK_dbo.Products] PRIMARY KEY ([ID])
 )
