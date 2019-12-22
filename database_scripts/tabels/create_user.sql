@@ -1,14 +1,13 @@
-use customer_db
+use BProject_db
 
 CREATE TABLE [dbo].[Users] 
 (
     [ID] [int] NOT NULL IDENTITY,
-    [Name] [nvarchar](max),
-    [Email] [nvarchar](max),
-    [Password] [nvarchar](max),
+    [Name] [nvarchar](100) NOT NULL ,
+    [Email] [nvarchar](100) NOT NULL,
+    [Password] [nvarchar](100) NOT NULL,
     [UpdatedDate] [datetime],
-    [CreatedDate] [datetime],
-    [Role_ID] [int],
+    [CreatedDate] [datetime] NOT NULL,
+    [Role_ID] [int] NOT NULL,
     CONSTRAINT [PK_dbo.Users] PRIMARY KEY ([ID])
 )
-CREATE INDEX [IX_Role_ID] ON [dbo].[Users]([Role_ID])
