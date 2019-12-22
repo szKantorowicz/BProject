@@ -1,4 +1,4 @@
-use customer_db
+use BProject_db
 
 create table [UserRole]
 (
