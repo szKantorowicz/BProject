@@ -8,9 +8,9 @@ using BProject.Core.Model;
 
 namespace BProject.Core.GetFunction
 {
-    class GetUser 
+    public class GetUser 
     {
-        static void GetUsers()
+        public static void GetUsers()
         {
             UserRepo userRepo = new UserRepo();
             CustomerRepo customerRepo = new CustomerRepo();
@@ -27,14 +27,13 @@ namespace BProject.Core.GetFunction
                 {
                     Console.WriteLine("");
 
-                    var customer = customerRepo.Find(c => c.UserID == userData.CustomerID);
-                    IEnumerable<Customer> customers = customer as Customer[] ?? customer.ToArray();
+                    var customers = customerRepo.Find(c => c.UserID == userData.ID);
                     if (!customers.Any()) continue;
                     Console.WriteLine("");
-                    foreach (var customer in customers)
-                    {
-                        Console.WriteLine(customers.FirstName)
 
+                    foreach (var client in customers)
+                    {
+                        Console.WriteLine(client.FirstName);
                     }
                 }
             }

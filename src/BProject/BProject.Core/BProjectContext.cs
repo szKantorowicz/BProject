@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core
 {
-    class BProjectContext : DbContext
+    public class BProjectContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
