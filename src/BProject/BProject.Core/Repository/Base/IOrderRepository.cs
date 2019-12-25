@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.Repository.Base
 {
-    interface ICategoryRepository : IRepository<Category>
+    interface IOrderRepository : IRepository<Order>
     {
         bool Exsite();
     }
