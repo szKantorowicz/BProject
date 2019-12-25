@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BProject.Core.Model;
+using BProject.Core.Repository.Base;
 
 namespace BProject.Core.GetFunction
 {
@@ -12,8 +13,8 @@ namespace BProject.Core.GetFunction
     {
         public static void GetUsers()
         {
-            UserRepo userRepo = new UserRepo();
-            CustomerRepo customerRepo = new CustomerRepo();
+            IUserRepository userRepo = new UserRepository();
+            CustomerRepository customerRepo = new CustomerRepository();
             var users = userRepo.GetAll();
 
             IEnumerable<User> userDatas = users.ToList();

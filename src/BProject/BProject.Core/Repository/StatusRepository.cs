@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.Repository
 {
-    public class StatusRepo: BaseRepository<Status>
+    public class StatusRepository : BaseRepository<Status>
     {
     }
 }

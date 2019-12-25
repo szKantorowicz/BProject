@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.Repository
 {
-    public class PaymentTypeRepo : BaseRepository<PaymentType>
+    public class PaymentTypeRepository : BaseRepository<PaymentType>
     {
     }
 }

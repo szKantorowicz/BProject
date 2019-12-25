@@ -61,13 +61,9 @@
     <Compile Include="EntityTypeConfiguration\RoleConfiguration.cs" />
     <Compile Include="EntityTypeConfiguration\StatusConfiguration.cs" />
     <Compile Include="EntityTypeConfiguration\UserConfiguration.cs" />
-    <Compile Include="Migrations\201912172137445_init.cs" />
-    <Compile Include="Migrations\201912172137445_init.designer.cs">
-      <DependentUpon>201912172137445_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.cs" />
-    <Compile Include="Migrations\201912192227544_UpdateClassConfiguration.designer.cs">
-      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
+    <Compile Include="Migrations\201912222253031_Init.cs" />
+    <Compile Include="Migrations\201912222253031_Init.designer.cs">
+      <DependentUpon>201912222253031_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Base\BaseEntity.cs" />
@@ -85,27 +81,26 @@
     <Compile Include="Model\Role.cs" />
     <Compile Include="Model\Status.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Repository\Base\ICategoryRepository.cs" />
     <Compile Include="Repository\Base\IRepository.cs" />
     <Compile Include="Repository\BaseRepository.cs" />
-    <Compile Include="Repository\CategoryRepo.cs" />
-    <Compile Include="Repository\OrderRepo.cs" />
-    <Compile Include="Repository\CustomerRepo.cs" />
-    <Compile Include="Repository\PaymentTypeRepo.cs" />
-    <Compile Include="Repository\ProductRepo.cs" />
-    <Compile Include="Repository\RoleRepo.cs" />
-    <Compile Include="Repository\StatusRepo.cs" />
-    <Compile Include="Repository\UserRepo.cs" />
+    <Compile Include="Repository\Base\IUserRepository.cs" />
+    <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\PaymentTypeRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\RoleRepository.cs" />
+    <Compile Include="Repository\StatusRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912172137445_init.resx">
-      <DependentUpon>201912172137445_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912192227544_UpdateClassConfiguration.resx">
-      <DependentUpon>201912192227544_UpdateClassConfiguration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912222253031_Init.resx">
+      <DependentUpon>201912222253031_Init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

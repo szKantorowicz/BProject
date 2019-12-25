@@ -1,7 +1,8 @@
 use BProject_db
 
-create table [UserRole]
+CREATE TABLE [dbo].[UserRole] 
 (
-UserID int PRIMARY KEY FOREIGN KEY dbo.[User]
-RoleID int PRIMARY KEY FOREIGN KEY dbo.[Role]
+    [UserID] [int] NOT NULL,
+    [RoleID] [int] NOT NULL,
+    CONSTRAINT [PK_dbo.UserRole] PRIMARY KEY ([UserID], [RoleID])
 )

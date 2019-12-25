@@ -12,7 +12,7 @@ namespace BProject.Core.Repository
     public class BaseRepository<BProjectEntity> : IRepository<BProjectEntity> 
         where BProjectEntity : BaseEntity
     {
-        private readonly BProjectContext Context;
+        protected readonly BProjectContext Context;
         protected DbSet<BProjectEntity> Entities;
 
         public BaseRepository()
@@ -21,11 +21,7 @@ namespace BProject.Core.Repository
             Entities = Context.Set<BProjectEntity>();
         }
 
-        public void eeeee(int id)
-        {
-            Get(filter: u => u.ID == id, orderBy: u => u.OrderByDescending(x => x.ID), includeProperties: "Customer");
-        }
-
+       
         public virtual IEnumerable<BProjectEntity> Get(
             Expression<Func<BProjectEntity, bool>> filter = null,
             Func<IQueryable<BProjectEntity>, IOrderedQueryable<BProjectEntity>> orderBy = null,

@@ -3,7 +3,7 @@ using BProject.Core.Repository.Base;
 
 namespace BProject.Core.Repository
 {
-    public class CategoryRepo : BaseRepository<Category>, ICategoryRepository
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
     }
 }

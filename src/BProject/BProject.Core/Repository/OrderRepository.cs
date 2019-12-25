@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BProject.Core.Repository
 {
-    public class OrderRepo : BaseRepository<Order>
+    public class OrderRepository : BaseRepository<Order>
     {
     }
 }
