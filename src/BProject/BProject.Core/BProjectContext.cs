@@ -1,16 +1,11 @@
 ﻿using BProject.Core.EntityTypeConfiguration;
 using BProject.Core.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace BProject.Core
 {
-    class BProjectContext : DbContext
+    public class BProjectContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }

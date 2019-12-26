@@ -1,12 +1,15 @@
-use customer_db
+use BProject_db
 
-create table Customer
-(
-ID int  NOT NULL PRIMARY KEY,
-UserID int UNIQUE FOREIGN KEY dbo.User
-[Name] nvarchar(100),
-Email nvarchar(250),
-[Street] nvarchar (250),
-PostCode int,
-Country nvarchar(250),
+CREATE TABLE [dbo].[Customers] (
+    [ID] [int] NOT NULL IDENTITY,
+    [UserID] [int] NOT NULL,
+    [FirstName] [nvarchar](100),
+    [LastName] [nvarchar](100),
+    [UserName] [nvarchar](100) NOT NULL,
+    [Email] [nvarchar](100) NOT NULL,
+    [Phone] [nvarchar](10),
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime] NOT NULL,
+    CONSTRAINT [PK_dbo.Customers] PRIMARY KEY ([ID])
 )
+

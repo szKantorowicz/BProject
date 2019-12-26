@@ -10,6 +10,7 @@ namespace BProject.Console
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }
