@@ -2,7 +2,7 @@
 
 namespace BProject.Core.Repository.Base
 {
-    internal interface ICustomerRepository : IRepository<Customer>
+    public interface IProductRepository : IRepository<Product>   
     {
     }
 }

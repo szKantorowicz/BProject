@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BProject.Core.Model;
 
 namespace BProject.Core.Repository.Base
 {
-    interface IPaymentTypeRepository
+    interface IPaymentTypeRepository : IRepository<PaymentType>
     {
     }
 }
