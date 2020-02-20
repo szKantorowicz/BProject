@@ -1,14 +1,15 @@
-use customer_db
+use BProject_db
 
-create table dbo.Product
+CREATE TABLE [dbo].[Products] 
 (
-ID int PRIMARY KEY FOREIGN KEY dbo.Product,
-CategoryId int FOREIGN KEY dbo.Category,
-Name nvarchar(50),
-Description nvarchar(max),
-Price decimal(10,2),
-QuantityInStock int,
-Availablity bit,
-UpdatedDate datetime,
-CreatedDate datetime
+    [ID] [int] NOT NULL IDENTITY,
+    [Category] [int] NOT NULL,
+    [Name] [nvarchar](100) NOT NULL,
+    [Description] [nvarchar](1000) NOT NULL,
+    [Price] [decimal](18, 2) NOT NULL,
+    [QuantityInStock] [int] NOT NULL,
+    [Availability] [bit] NOT NULL,
+    [UpdatedDate] [datetime],
+    [CreatedDate] [datetime] NOT NULL,
+    CONSTRAINT [PK_dbo.Products] PRIMARY KEY ([ID])
 )

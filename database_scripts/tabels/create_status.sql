@@ -1,7 +1,8 @@
-use customer_db
+use BProject_db
 
-create table dbo.[Status]
+CREATE TABLE [dbo].[Status] 
 (
-ID int  NOT NULL PRIMARY KEY,
-[Name] nvarchar(100)
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](100) NOT NULL,
+    CONSTRAINT [PK_dbo.Status] PRIMARY KEY ([ID])
 )

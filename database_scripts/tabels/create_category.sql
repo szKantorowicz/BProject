@@ -1,9 +1,9 @@
-use customer_db
+use BProject_db
 
-create table Category
+CREATE TABLE [dbo].[Categories] 
 (
-ID int PRIMARY KEY,
-Name nvarchar(100),
-[Description] nvarchar(100)
+    [ID] [int] NOT NULL IDENTITY,
+    [Name] [nvarchar](100) NOT NULL,
+    [Description] [nvarchar](1000),
+    CONSTRAINT [PK_dbo.Categories] PRIMARY KEY ([ID])
 )
-
