@@ -1,9 +1,41 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.181
+VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BProject.Core", "src\BProject.Core\BProject.Core.csproj", "{F1BC7006-24D9-40A3-B0EF-8D503A0BA311}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7EACBAC9-3816-4ABD-BF71-5A0DECD19451}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{97070C5C-50EF-4931-B014-81B0E474F671}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "db_scripts", "db_scripts", "{E5FA16DF-9BC0-437B-BDAD-4AFE3DF7F1DB}"
+	ProjectSection(SolutionItems) = preProject
+		database_scripts\create_database.sql = database_scripts\create_database.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{23989B17-A85A-40F9-B015-1550FCB26CDD}"
+	ProjectSection(SolutionItems) = preProject
+		database_scripts\tabels\create_address.sql = database_scripts\tabels\create_address.sql
+		database_scripts\tabels\create_category.sql = database_scripts\tabels\create_category.sql
+		database_scripts\tabels\create_constants.sql = database_scripts\tabels\create_constants.sql
+		database_scripts\tabels\create_customer.sql = database_scripts\tabels\create_customer.sql
+		database_scripts\tabels\create_order.sql = database_scripts\tabels\create_order.sql
+		database_scripts\tabels\create_orderItem.sql = database_scripts\tabels\create_orderItem.sql
+		database_scripts\tabels\create_paymentType.sql = database_scripts\tabels\create_paymentType.sql
+		database_scripts\tabels\create_product.sql = database_scripts\tabels\create_product.sql
+		database_scripts\tabels\create_productCategory.sql = database_scripts\tabels\create_productCategory.sql
+		database_scripts\tabels\create_role.sql = database_scripts\tabels\create_role.sql
+		database_scripts\tabels\create_status.sql = database_scripts\tabels\create_status.sql
+		database_scripts\tabels\create_user.sql = database_scripts\tabels\create_user.sql
+		database_scripts\tabels\create_userRole.sql = database_scripts\tabels\create_userRole.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BProject.Application", "src\BProject.Application\BProject.Application.csproj", "{190C61DC-A3DC-43AA-9572-277EE3E074FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BProject.Infrastructure", "src\BProject.Infrastructure\BProject.Infrastructure.csproj", "{7CEF3932-6089-4D1F-9933-17718165C03E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BProject.Web.Mvc", "src\BProject.Web.Mvc\BProject.Web.Mvc.csproj", "{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,13 +47,28 @@ Global
 		{F1BC7006-24D9-40A3-B0EF-8D503A0BA311}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1BC7006-24D9-40A3-B0EF-8D503A0BA311}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1BC7006-24D9-40A3-B0EF-8D503A0BA311}.Release|Any CPU.Build.0 = Release|Any CPU
-		{722BCFD0-ACB2-41E2-B612-CC327F831E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{722BCFD0-ACB2-41E2-B612-CC327F831E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{722BCFD0-ACB2-41E2-B612-CC327F831E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{722BCFD0-ACB2-41E2-B612-CC327F831E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190C61DC-A3DC-43AA-9572-277EE3E074FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190C61DC-A3DC-43AA-9572-277EE3E074FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190C61DC-A3DC-43AA-9572-277EE3E074FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190C61DC-A3DC-43AA-9572-277EE3E074FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CEF3932-6089-4D1F-9933-17718165C03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CEF3932-6089-4D1F-9933-17718165C03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CEF3932-6089-4D1F-9933-17718165C03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CEF3932-6089-4D1F-9933-17718165C03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1BC7006-24D9-40A3-B0EF-8D503A0BA311} = {7EACBAC9-3816-4ABD-BF71-5A0DECD19451}
+		{23989B17-A85A-40F9-B015-1550FCB26CDD} = {E5FA16DF-9BC0-437B-BDAD-4AFE3DF7F1DB}
+		{190C61DC-A3DC-43AA-9572-277EE3E074FF} = {7EACBAC9-3816-4ABD-BF71-5A0DECD19451}
+		{7CEF3932-6089-4D1F-9933-17718165C03E} = {7EACBAC9-3816-4ABD-BF71-5A0DECD19451}
+		{E618A2F8-0F17-45B5-AC58-D7F6E2361EC9} = {7EACBAC9-3816-4ABD-BF71-5A0DECD19451}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {79CB0F16-2274-477E-80D1-A6571F8DC8BB}
