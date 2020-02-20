@@ -2,8 +2,7 @@
 
 namespace BProject.Core.Repository.Base
 {
-    interface ICategoryRepository : IRepository<Category>
+    interface IRoleRepository : IRepository<Role>
     {
- 
     }
 }

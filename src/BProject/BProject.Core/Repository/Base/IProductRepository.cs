@@ -2,8 +2,7 @@
 
 namespace BProject.Core.Repository.Base
 {
-    interface ICategoryRepository : IRepository<Category>
+    public interface IProductRepository : IRepository<Product>   
     {
- 
     }
 }
