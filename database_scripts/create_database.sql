@@ -107,6 +107,7 @@ CREATE TABLE [dbo].[UserRole] (
     [RoleID] [int] NOT NULL,
     CONSTRAINT [PK_dbo.UserRole] PRIMARY KEY ([UserID], [RoleID])
 )
+
 CREATE INDEX [CustomerID] ON [dbo].[Orders]([CustomerID])
 CREATE INDEX [PaymentTypeID] ON [dbo].[Orders]([PaymentTypeID])
 CREATE INDEX [StatusID] ON [dbo].[Orders]([StatusID])
