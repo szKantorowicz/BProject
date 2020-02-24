@@ -4,7 +4,7 @@ using BProject.Infrastructure.EntityFramework.EntityTypeConfiguration;
 
 namespace BProject.Infrastructure.EntityFramework
 {
-    public class BProjectContext : DbContext
+    public class BProjectContext : DbContext, IUnitOfWork
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
@@ -36,6 +36,34 @@ namespace BProject.Infrastructure.EntityFramework
             modelBuilder.Configurations.Add(new UserConfiguration());
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        public DbContextTransaction BeginTransaction()
+        {
+            return Database.BeginTransaction();
+        }
+
+        public void Rollback(DbContextTransaction transaction)
+        {
+            transaction.Rollback();
+        }
+
+        public void CommitTransaction(DbContextTransaction transaction)
+        {
+            try
+            {
+                SaveChanges();
+                transaction.Commit();
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
+        }
+
+        public void SaveEntities()
+        {
+            SaveChanges();
         }
     }
 }
