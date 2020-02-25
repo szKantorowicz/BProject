@@ -13,14 +13,20 @@ namespace BProject.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
         private readonly IProductRepository _productRepository;
-        private readonly IPaymentTypeRepsitory _paymentTypeRepsitory;
+        private readonly IPaymentTypeRepository _paymentTypeRepsitory;
         private readonly IStatusRepository _statusRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DataInitializer(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        public DataInitializer(IUserRepository userRepository,IRoleRepository roleRepository, IProductRepository productRepository, IPaymentTypeRepository paymentTypeRepository, IStatusRepository statusRepository, ICategoryRepsitory categoryRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _roleRepository = roleRepository;
+            _productRepository = productRepository;
+            _paymentTypeRepository = paymentTypeRepository;
+            _statusRepository = statusRepository;
+            _categoryRepository = categoryRepository;
+           
             _unitOfWork = unitOfWork;
         }
 
@@ -28,7 +34,6 @@ namespace BProject.Application.Services
         {
             try
             {
-                // todo dodać obiekty w liscie które trzeba dodać do bazy
                 var transaction = _unitOfWork.BeginTransaction();
 
                 bool isUsersInDatabase = _userRepository.GetAll().Any();
