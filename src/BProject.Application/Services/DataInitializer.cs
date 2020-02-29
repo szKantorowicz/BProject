@@ -4,7 +4,7 @@ using System.Linq;
 using BProject.Application.Services.Base;
 using BProject.Core.Models;
 using BProject.Core.Repositories;
-using BProject.Infrastructure.EntityFramework;
+
 
 namespace BProject.Application.Services
 {
@@ -13,12 +13,12 @@ namespace BProject.Application.Services
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
         private readonly IProductRepository _productRepository;
-        private readonly IPaymentTypeRepository _paymentTypeRepsitory;
+        private readonly IPaymentTypeRepository _paymentTypeRepository;
         private readonly IStatusRepository _statusRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DataInitializer(IUserRepository userRepository,IRoleRepository roleRepository, IProductRepository productRepository, IPaymentTypeRepository paymentTypeRepository, IStatusRepository statusRepository, ICategoryRepsitory categoryRepository, IUnitOfWork unitOfWork)
+        public DataInitializer(IUserRepository userRepository,IRoleRepository roleRepository, IProductRepository productRepository, IPaymentTypeRepository paymentTypeRepository, IStatusRepository statusRepository, ICategoryRepository categoryRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
@@ -50,19 +50,19 @@ namespace BProject.Application.Services
 
                 bool isRolesInDatabase = _roleRepository.GetAll().Any();
 
-                if (!isRoleInDatabase)
+                if (!isRolesInDatabase)
                 {
                     var roles = GetDefaultRoles().ToList();
 
                     foreach (var role in roles)
                     {
-                        _userRepository.Add(role);
+                        _roleRepository.Add(role);
                     }
                 }
 
                 bool isProductsInDatabase = _productRepository.GetAll().Any();
 
-                if (!isProductInDatabase)
+                if (!isProductsInDatabase)
                 {
                     var products = GetDefaultProducts().ToList();
 
