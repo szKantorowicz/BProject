@@ -27,7 +27,7 @@ namespace BProject.Infrastructure.EntityFramework.EntityTypeConfiguration
             Property(u => u.UpdatedDate)
                 .IsOptional();
 
-            HasRequired(u => u.Customer)
+            HasOptional(u => u.Customer)
                 .WithMany()
                 .HasForeignKey(u => u.CustomerID);
 

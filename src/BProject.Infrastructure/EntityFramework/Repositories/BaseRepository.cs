@@ -14,14 +14,34 @@ namespace BProject.Infrastructure.EntityFramework.Repositories
         protected readonly BProjectContext Context;
         protected DbSet<BProjectEntity> Entities;
 
-        public BaseRepository()
+        protected BaseRepository()
         {
             Context = new BProjectContext();
             Entities = Context.Set<BProjectEntity>();
         }
 
-       
-        public virtual IEnumerable<BProjectEntity> Get(
+        public BProjectEntity Get(int id)
+        {
+            return Entities.Find(id);
+        }
+
+        public BProjectEntity FindSpecific(Expression<Func<BProjectEntity, bool>> predicate)
+        {
+            return Entities.SingleOrDefault(predicate);
+        }
+
+        public IEnumerable<BProjectEntity> GetAll()
+        {
+            return Entities.ToList();
+        }
+
+        public IEnumerable<BProjectEntity> Find(Expression<Func<BProjectEntity, bool>> predicate)
+        {
+            return Entities.Where(predicate);
+        }
+
+
+        public IEnumerable<BProjectEntity> GetMany(
             Expression<Func<BProjectEntity, bool>> filter = null,
             Func<IQueryable<BProjectEntity>, IOrderedQueryable<BProjectEntity>> orderBy = null,
             string includeProperties = "")
@@ -43,50 +63,24 @@ namespace BProject.Infrastructure.EntityFramework.Repositories
             {
                 return orderBy(query).ToList();
             }
-            else
-            {
-                return query.ToList();
-            }
-        }
 
-        public virtual BProjectEntity Get(int id)
-        {
-
-            return Entities.Find(id);
-        }
-
-        public IEnumerable<BProjectEntity> GetAll()
-        {
-            return Entities.ToList();
-        }
-
-        public IEnumerable<BProjectEntity> Find(Expression<Func<BProjectEntity, bool>> predicate)
-        {
-            return Entities.Where(predicate);
-        }
-
-        public BProjectEntity SingleOrDefault(Expression<Func<BProjectEntity, bool>> predicate)
-        {
-            return Entities.Where(predicate).SingleOrDefault();
+            return query.ToList();
         }
 
         public void Add(BProjectEntity entity)
         {
             Entities.Add(entity);
-            Context.SaveChanges();
+        }
+
+        public void Update(BProjectEntity entityToUpdate)
+        {
+            Entities.Attach(entityToUpdate);
+            Context.Entry(entityToUpdate).State = EntityState.Modified;
         }
 
         public void Remove(BProjectEntity entity)
         {
             Entities.Remove(entity);
-            Context.SaveChanges();
-        }
-
-        public virtual void UpdateEntity(BProjectEntity entityToUpdate)
-        {
-            Entities.Attach(entityToUpdate);
-            Context.Entry(entityToUpdate).State = EntityState.Modified;
-            Context.SaveChanges();
         }
     }  
 }

@@ -62,6 +62,7 @@
     <Compile Include="EntityFramework\EntityTypeConfiguration\RoleConfiguration.cs" />
     <Compile Include="EntityFramework\EntityTypeConfiguration\StatusConfiguration.cs" />
     <Compile Include="EntityFramework\EntityTypeConfiguration\UserConfiguration.cs" />
+    <Compile Include="EntityFramework\IUnitOfWork.cs" />
     <Compile Include="EntityFramework\Repositories\BaseRepository.cs" />
     <Compile Include="EntityFramework\Repositories\CategoryRepository.cs" />
     <Compile Include="EntityFramework\Repositories\CustomerRepository.cs" />
@@ -71,10 +72,6 @@
     <Compile Include="EntityFramework\Repositories\RoleRepository.cs" />
     <Compile Include="EntityFramework\Repositories\StatusRepository.cs" />
     <Compile Include="EntityFramework\Repositories\UserRepository.cs" />
-    <Compile Include="Migrations\202002202144096_Init.cs" />
-    <Compile Include="Migrations\202002202144096_Init.designer.cs">
-      <DependentUpon>202002202144096_Init.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -87,11 +84,6 @@
       <Project>{f1bc7006-24d9-40a3-b0ef-8d503a0ba311}</Project>
       <Name>BProject.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202002202144096_Init.resx">
-      <DependentUpon>202002202144096_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

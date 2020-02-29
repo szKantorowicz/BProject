@@ -4,7 +4,7 @@ using System.Linq;
 using BProject.Application.Services.Base;
 using BProject.Core.Models;
 using BProject.Core.Repositories;
-
+using BProject.Infrastructure.EntityFramework;
 
 namespace BProject.Application.Services
 {
@@ -18,7 +18,13 @@ namespace BProject.Application.Services
         private readonly ICategoryRepository _categoryRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DataInitializer(IUserRepository userRepository,IRoleRepository roleRepository, IProductRepository productRepository, IPaymentTypeRepository paymentTypeRepository, IStatusRepository statusRepository, ICategoryRepository categoryRepository, IUnitOfWork unitOfWork)
+        public DataInitializer(IUserRepository userRepository,
+            IRoleRepository roleRepository,
+            IProductRepository productRepository,
+            IPaymentTypeRepository paymentTypeRepository,
+            IStatusRepository statusRepository,
+            ICategoryRepository categoryRepository,
+            IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
@@ -26,7 +32,7 @@ namespace BProject.Application.Services
             _paymentTypeRepository = paymentTypeRepository;
             _statusRepository = statusRepository;
             _categoryRepository = categoryRepository;
-           
+
             _unitOfWork = unitOfWork;
         }
 
@@ -35,6 +41,17 @@ namespace BProject.Application.Services
             try
             {
                 var transaction = _unitOfWork.BeginTransaction();
+                var isRolesInDatabase = _roleRepository.GetAll().Any();
+
+                if (!isRolesInDatabase)
+                {
+                    var roles = GetDefaultRoles().ToList();
+
+                    foreach (var role in roles)
+                    {
+                        _roleRepository.Add(role);
+                    }
+                }
 
                 bool isUsersInDatabase = _userRepository.GetAll().Any();
 
@@ -45,18 +62,6 @@ namespace BProject.Application.Services
                     foreach (var user in users)
                     {
                         _userRepository.Add(user);
-                    }
-                }
-
-                bool isRolesInDatabase = _roleRepository.GetAll().Any();
-
-                if (!isRolesInDatabase)
-                {
-                    var roles = GetDefaultRoles().ToList();
-
-                    foreach (var role in roles)
-                    {
-                        _roleRepository.Add(role);
                     }
                 }
 
@@ -107,6 +112,7 @@ namespace BProject.Application.Services
                         _categoryRepository.Add(category);
                     }
                 }
+
                 _unitOfWork.CommitTransaction(transaction);
             }
             catch (Exception exception)
@@ -117,9 +123,13 @@ namespace BProject.Application.Services
 
         private static IEnumerable<User> GetDefaultUsers()
         {
+            var admin = GetDefaultRoles().FirstOrDefault(x => x.Name == "Admin");
+            var editor = GetDefaultRoles().FirstOrDefault(x => x.Name == "Editor");
+            var member = GetDefaultRoles().FirstOrDefault(x => x.Name == "Member");
+
             var users = new List<User>()
             {
-                new User() {},
+                new User() {Name = "Simon", Email = "simon@email.com", Password = "Haslo123", Roles = { admin, member}},
                 new User() {},
                 new User() {}
             };
@@ -131,9 +141,9 @@ namespace BProject.Application.Services
         {
             var roles = new List<Role>()
             {
-                new Role() {},
-                new Role() {},
-                new Role() {}
+                new Role() {Name = "Admin", CreatedDate = DateTime.Now},
+                new Role() {Name = "Editor", CreatedDate = DateTime.Now},
+                new Role() {Name = "Member", CreatedDate = DateTime.Now}
             };
 
             return roles;

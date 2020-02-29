@@ -132,7 +132,7 @@
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        CustomerID = c.Int(nullable: false),
+                        CustomerID = c.Int(),
                         Name = c.String(nullable: false, maxLength: 100),
                         Email = c.String(nullable: false, maxLength: 100),
                         Password = c.String(nullable: false, maxLength: 200),
@@ -140,7 +140,7 @@
                         CreatedDate = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Customers", t => t.CustomerID, cascadeDelete: true)
+                .ForeignKey("dbo.Customers", t => t.CustomerID)
                 .Index(t => t.CustomerID);
             
             CreateTable(

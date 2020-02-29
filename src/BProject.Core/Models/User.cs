@@ -10,7 +10,7 @@ namespace BProject.Core.Models
             Roles = new HashSet<Role>();
         }
 
-        public int CustomerID { get; set; }
+        public int? CustomerID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
